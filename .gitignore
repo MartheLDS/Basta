@@ -1,3 +1,5 @@
+#ne pas versionner les environnements virtuels et les données
 .venv/
 .data/
 __pycache__/
+
