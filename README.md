@@ -6,41 +6,49 @@ Cartes interactives Folium pour visualiser les données du baromètre Basta à M
 
 ```
 Basta/
-├── cartes/           # Cartes sources (générées par les scripts)
-├── docs/             # Cartes pour GitHub Pages
-├── analysis/         # Analyse de représentativité
-│   ├── notebooks/    # Notebooks Jupyter
-│   ├── data/
-│   │   ├── raw/      # Données brutes (CSVs INSEE, réponses)
-│   │   └── processed/# Données combinées/traitées
-│   └── scripts/      # Scripts Python
-└── README.md
+├── carto/               # 🗺️ Cartographie
+│   ├── cartes/          # Cartes générées
+│   ├── docs/            # Cartes publiées sur GitHub Pages
+│   ├── scripts/         # Scripts de génération des cartes
+│   ├── data/            # Données géographiques (GeoJSON, cache)
+│   └── main.py          # Script principal
+│
+└── analysis/            # 📊 Analyse de représentativité
+    ├── notebooks/       # Notebooks Jupyter d'analyse
+    ├── data/
+    │   ├── raw/         # Données brutes (CSVs INSEE, réponses questionnaire)
+    │   └── processed/   # Données combinées/traitées
+    └── scripts/         # Scripts Python d'analyse
 ```
+
+**Séparation claire :** 
+- `carto/` → tout ce qui concerne les cartes interactives Folium
+- `analysis/` → tout ce qui concerne l'analyse statistique du baromètre
 
 ## Déploiement GitHub Pages
 
-Les cartes HTML sont accessibles via GitHub Pages à partir du dossier `docs/`.
+Les cartes HTML sont accessibles via GitHub Pages à partir du dossier `carto/docs/`.
 
 ### Configuration
 
 1. Aller dans Settings > Pages du repo
 2. Source : Deploy from a branch
 3. Branch : `main` (ou `deploy/docs-pages`)
-4. Folder : `/docs`
+4. Folder : `/carto/docs`
 5. Save
 
 Les cartes seront dispo sur : `https://martheleds.github.io/Basta/`
 
 ### Mettre à jour les cartes
 
-Après avoir regénéré les cartes dans `cartes/` :
+Après avoir regénéré les cartes dans `carto/cartes/` :
 
 ```bash
 # Copier les nouvelles cartes dans docs/
-cp cartes/*.html docs/
+cp carto/cartes/*.html carto/docs/
 
 # Commit et push
-git add docs/
+git add carto/docs/
 git commit -m "Update maps"
 git push
 ```
@@ -70,4 +78,4 @@ Les données sources sont dans `analysis/data/raw/`.
 
 - Les cartes utilisent Leaflet via CDN, donc pas besoin de servir des assets locaux
 - Les GeoJSON sont embarqués directement dans les HTML
-- Pour tester en local : `python3 -m http.server 8000` depuis le dossier `docs/`
+- Pour tester en local : `python3 -m http.server 8000` depuis le dossier `carto/docs/`
