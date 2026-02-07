@@ -34,10 +34,10 @@ Les cartes HTML sont accessibles via GitHub Pages à partir du dossier `carto/do
 1. Aller dans Settings > Pages du repo
 2. Source : Deploy from a branch
 3. Branch : `main` (ou `deploy/docs-pages`)
-4. Folder : `/carto/docs`
+4. Folder : `/docs`
 5. Save
 
-Les cartes seront dispo sur : `https://martheleds.github.io/Basta/`
+Les cartes seront dispo sur : `https://marthelds.github.io/Basta/`
 
 ### Mettre à jour les cartes
 
@@ -45,7 +45,7 @@ Après avoir regénéré les cartes dans `carto/cartes/` :
 
 ```bash
 # Copier les nouvelles cartes dans docs/
-cp carto/cartes/*.html carto/docs/
+cp carto/cartes/*.html docs/
 
 # Commit et push
 git add carto/docs/
