@@ -1,7 +1,7 @@
 [project]
 name = "basta"
 version = "0.1.0"
-description = "Add your description here"
+description = "Cartographie interactive et analyse de représentativité du Baromètre Basta à Marseille"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
